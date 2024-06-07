@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+</script>
+<body>
+  <section id="demos" class="invisible">
+    <h2>Система определения позы человека при реабилитации после инсульта</h2>
+    <p>Нажмите на кнопку <b>"Включить вебкамеру"</b> ниже и предоставьте к ней доступ если потребуется.</br>Для корректной работы программы займите положение сидя прямо напротив камеры так, чтобы в кадр попадала вся часть тела, находящаяся выше пояса</p>
+    <div id="liveView" class="videoView">
+      <form>
+        <label><input type="radio" name="my-radio" value="1" checked> Поднятие скрещенных рук</label><br>
+        <label><input type="radio" name="my-radio" value="2"> Отведение в сторону скрещенных рук с поднятием на уровень плеч</label><br>
+        <label><input type="radio" name="my-radio" value="3"> Отведение в сторону прямой руки с поднятием на уровень плеч</label><br>
+      </form>
+      <button id="webcamButton" class="mdc-button mdc-button--raised" style="margin-top: 10px;">
+        <span class="mdc-button__ripple"></span>
+        <span class="mdc-button__label">ВКЛЮЧИТЬ ВЕБКАМЕРУ</span>
+      </button>
+      <div style="position: relative;">
+        <video id="webcam" style="width: 640px; height: 480px; position: abso; margin-top: 10px; " autoplay playsinline></video>
+        <canvas class="output_canvas" id="output_canvas" width="640" height="480" style="position: absolute; left: 0px; top: 0px;"></canvas>
+      </div>
+    </div>
+    <p style="font-size:20px;">Количество повторений: <b id="count"></b></p>
+    <p id="message" style="font-size:20px;"></p>
+    <p id="advice" style="font-size:20px; color: red;"></p>
+  </section>
+    <script type = "module" src = './systemHPE.js'></script>
+
+</body>
+</html>
